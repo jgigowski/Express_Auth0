@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{>head}}
+  </head>
+  <body id="samples">
+    <div id="content" class="ui container padded grid relaxed">
+      <div id="menu" class="column four wide">
+        {{>nav}}
+      </div>
+      <div id="doc" class="column twelve wide">
+        <div class="doc-overview">
+          <h2 class="ui dividing header" data-se="overview-doc-header">
+            Server Configuration
+          </h2>
+          <p>This server has been configured with the following settings:</p>
+          <table class="ui table compact collapsing" style="width: 600px;">
+            <thead>
+              <tr>
+                <th>Setting</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Issuer</td>
+                <td>{{issuerBaseUrl}}</td>
+              </tr>
+              <tr>
+                <td>Client ID</td>
+                <td>{{client_id}}</td>
+              </tr>
+              <tr>
+                <td>App Base Url</td>
+                <td>{{appBaseUrl}}</td>
+              </tr>
+              <tr>
+                <td>App Port</td>
+                <td>{{port}}</td>
+              </tr>                        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

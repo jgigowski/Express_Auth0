@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{>head}}
+  </head>
+  <body id="samples">
+    
+    <div id="content" class="ui container padded grid relaxed">
+      <div id="menu" class="column four wide">
+        {{>nav}}
+      </div>
+      <div id="doc" class="column twelve wide">
+        <form method="post" action="/actionresponse" class="ui form">
+          <div class="doc-overview">
+            <h2 class="ui dividing header" data-se="overview-doc-header">Post-Login Actions</h2>
+            <h4>
+              You can use post-login Actions to redirect users before an authentication transaction is complete. This lets you implement custom authentication flows that require additional user interaction beyond the standard login form. 
+              <a href="https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow/redirect-with-actions" target="_blank">Details</a>
+            </h4>
+            <div style="padding-top: 30px">
+              <div class="field">
+                <label>Favorite Vacation Type</label>
+                <input type="text" name="tFavoriteVacation" placeholder="Favorite Vacation Type">
+              </div>
+            </div>
+            <div style="padding-top: 30px">
+              <div class="grouped fields">
+                  <label>Marketting Preference</label>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input type="radio" id="nocall" name="rMarkettingPreference" value="nocall" checked>
+                      <label for="nocall">Do Not Call</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input type="radio" id="noemail" name="rMarkettingPreference" value="noemail">
+                      <label for="noemail">Do Not eMail</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui radio checkbox">
+                      <input type="radio" id="nocontact" name="rMarkettingPreference" value="nocontact">
+                      <label for="nocontact">Do Not Contact</label>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div style="padding-top: 30px">
+              <div class="ui checkbox">
+                <input type="checkbox" name="cTerms" tabindex="0" class="hidden">
+                <label>I agree to the Terms of Service</label>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div style="padding-top: 30px">
+              <button id="submit-button" class="ui primary button" type="submit"><i class="check icon"></i>Submit</button>
+            </div>
+        </form>
+      </div>
+     </div>
+    </div>
+  <script>
+    $('.ui.checkbox').checkbox();
+  </script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+
+/* General ********************************************************************/
+
+html, body {
+    height: 100%;
+  }
+  
+  a:link, a:visited, a:active {
+    color: #4183C4;
+  }
+  
+  #samples, #samples .ui.menu, #samples .ui.table {
+    font-size: 15px;
+  }
+  
+  /* Menu    ***********************************************************************/
+  
+  #menu, .menu {
+    background-color: #eaeaea;
+  }
+  
+  .menu button {
+    cursor: pointer;
+    border: none;
+  }
+  
+  .menu button:hover {
+    color: #fff !important;
+  }
+  
+  /* Documentation **************************************************************/
+  
+  #content {
+    margin-top: 1em;
+    padding-top: 0;
+    height: 100%;
+  }
+  
+  #doc {
+    padding-left: 42px;
+    padding-top: 29px;
+  }
+  
+  .ui.segment {
+    box-shadow: none;
+    border-radius: 0;
+    border-width: 1px 0;
+  }
+  
+  .ui.table thead th {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+  
+  ol.ui.list li {
+    padding-bottom: 19px;
+  }
+  
+  .ui.mini.loader {
+    height: 0.8rem;
+    font-size: 1em;
+    top: -2px;
+  }
+  
+  .ui.orange.labels {
+    padding: 20px 0 40px 0;
+    text-align: center;
+  }
+  
+  .ui.orange.labels .ui.label {
+    text-transform: capitalize;
+  }
+  
+  .sample-col {
+    border-left: 3px solid #000;
+    color: #F0EBD8;
+  }
+  
+  .sample-col .ui.header {
+    color: #F0EBD8;
+  }
+  
+  .ui.grid>.sample-col.column,
+  .ui.grid>.sample-col.row,
+  .ui.grid>.row>.sample-col.column {
+    background-color: #312F2F;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Profile Page ***************************************************************/
+  
+  .profile {
+    text-align: center;
+  }
+  
+  .profile .ui.table {
+    margin: 30px auto;
+  }
+  
+  .profile .ui.table th {
+    text-align: center;
+  }

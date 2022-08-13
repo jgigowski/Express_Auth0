@@ -1,0 +1,19 @@
+
+<div class="ui secondary vertical menu">
+    <a class="item" href="/">
+      <span><i class="home icon"></i> Home</span>
+    </a>
+  {{#isLoggedIn}}
+    <a id="profile-button" class="item" href="/profile">
+      <span><i class="id badge outline icon"></i> My Profile</span>
+    </a>
+    <a id="usergroups-button" class="item" href="/config">
+      <span><i class="settings icon"></i> My Config</span>
+    </a>
+    <p>&nbsp;</p>
+    <form method="GET" action="/logout">
+      <button class="ui primary button" type="submit"><i class="sign-out icon"></i>Logout</button>
+    </form>
+  {{/isLoggedIn}}
+
+</div>

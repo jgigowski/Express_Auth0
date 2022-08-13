@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{>head}}
+  </head>
+  <body id="samples">
+
+    <div id="content" class="ui container padded grid relaxed">
+
+      <div id="menu" class="column four wide">
+        {{>nav}}
+      </div>
+
+      <div id="doc" class="column twelve wide">
+        <div class="doc-overview text container">
+          <h2 class="ui dividing header" data-se="overview-doc-header">
+            Auth0 Login + Express JS Example
+          </h2>
+
+          {{^isLoggedIn}}
+            <p>Hello!</p>
+            <p>If you're viewing this page then you have successfully configured this example server.  Your server configuration is listed on the right.</p>
+            <p>This example shows you how to use the <a href="https://github.com/auth0/express-openid-connect" target="_blank">Auth0 OIDC Middleware Library</a> to add the <a href="https://auth0.com/docs/get-started/authentication-and-authorization-flow/authorization-code-flow-with-proof-key-for-code-exchange-pkce" target="_blank">Authorization Code Flow with Proof Key for Code Exchange (PKCE)</a> to your application.</p>
+            <p>When you click the login button below, you will be redirected to the login page on your Auth0 tenant.  After you authenticate, you will be returned to this application where a local cookie session will be created for you.</p>
+          {{/isLoggedIn}}
+
+          {{#isLoggedIn}}
+            <p>Welcome back, {{user.name}}!</p>
+            <p>You have successfully authenticated against your Auth0 tenant, and have been redirected back to this application.  Here are some cool things to know:</p>
+            <ul>
+              <li>The <a href="https://github.com/auth0/express-openid-connect" target="_blank">Auth0 OIDC Middleware Library</a> has created a local cookie session to persist your authentication.</li>
+              <li>The session contains the information retrieved from the <a href="https://auth0.com/docs/api/authentication#user-profile" target="_blank">User Info Endpoint</a> of the cofigured issuer. This information is automatically persisted for you, and can be read from <code>req.oidc.user</code></li>
+              <li>Visit the <a href="/profile">My Profile</a> page in this application to see an example of using this data.</li>
+            </ul>
+            <p></p>
+          {{/isLoggedIn}}
+
+          {{^isLoggedIn}}
+            <form method="get" action="/login">
+              <button id="login-button" class="ui primary button" type="submit"><i class="sign-in icon"></i>Log In</button>
+            </form>
+          {{/isLoggedIn}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

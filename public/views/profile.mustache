@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{>head}}
+  </head>
+  <body id="samples">
+    <div id="content" class="ui container padded grid relaxed">
+      <div id="menu" class="column four wide">
+        {{>nav}}
+      </div>
+      <div id="doc" class="column twelve wide">
+        <div class="doc-overview">
+          <h2 class="ui dividing header" data-se="overview-doc-header">
+            My Profile
+          </h2>
+          <p>Hello {{user.name}}, <p/>Below is the information that was read from the <a href="https://auth0.com/docs/api/authentication#user-profile" target="_blank">User Info Endpoint</a>
+            and persisted by the <a href="https://auth0.github.io/express-openid-connect/index.html" target="_blank">Express JS middleware</a> implementing sign on for Express web apps using OpenID Connect.
+          </p>
+          <p>This route is protected with the <code>requiresAuth()</code> middleware, which will ensure that this page cannot be accessed until you have authenticated.</p>
+        </div>
+        <div style="padding-top: 30px">
+          <table class="ui table compact collapsing" style="width: 600px;">
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td>{{user.name}}</td>
+              </tr>
+              <tr>
+                <td>Nickname</td>
+                <td>{{user.nickname}}</td>
+              </tr>
+              <tr>
+                <td>Given Name</td>
+                <td>{{user.given_name}}</td>
+              </tr>
+              <tr>
+                <td>Family Name</td>
+                <td>{{user.family_name}}</td>
+              </tr>                            
+              <tr>
+                <td>Picture</td>
+                <td>
+                {{#user.picture}}
+                  <img src="{{user.picture}}" title="{{user.picture}}">
+                {{/user.picture}}
+                </td>
+              </tr>
+              <tr>
+                <td>locale</td>
+                <td>{{user.locale}}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{{user.email}}</td>
+              </tr>     
+              <tr>
+                <td>Last Updated</td>
+                <td>{{lastupdated}}</td>
+              </tr>                                   
+            </tbody>
+          </table>        
+        </div>
+        <div style="padding-top: 30px">
+          <p>ID Token:</br><textarea rows="12" cols="94">{{id_token}}</textarea></p>
+          <p>Access Token:</br><textarea rows="12" cols="94">{{accessToken}}</textarea></p>
+        </div>
+        <div>
+          <a href="https://jwt.io/" target="_blank">https://jwt.io/</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
