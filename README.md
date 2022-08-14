@@ -1,8 +1,8 @@
 # Express_Auth0
  
 Setup Instructions
-1. App Setup - Update the ENV file for your Auth0 tenant and app details
-2. Auth0 Tenant - Integrate the app into Auth0 tenant and create an Action in the Login Flow with the following code
+1. App Setup - Update the ENV file with details about the Auth0 tenant and App
+2. Auth0 Tenant - Integrate the app into Auth0 tenant and create an Action in the Login Flow with the below code
 3. Create 2 Action Secrets - You can see them in the action code comment below
 
 <pre>
