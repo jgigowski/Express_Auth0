@@ -6,7 +6,7 @@ Setup Instructions
 3. Create 2 Action Secrets - You can see them in the action code comment below
 
 <html>
-<code node>
+<pre>
 /**
 * Handler that will be called during the execution of a PostLogin flow.
 *
@@ -72,5 +72,5 @@ exports.onContinuePostLogin = async (event, api) => {
 */
 // exports.onContinuePostLogin = async (event, api) => {
 // };
-</code>
+</pre>
 </html>
