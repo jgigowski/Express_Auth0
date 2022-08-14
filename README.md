@@ -31,8 +31,9 @@ Action Code
 /**
 * Handler that will be called during the execution of a PostLogin flow.
 
+* Examples of 2 Action Secrets for setup
 * SESSION_TOKEN_SECRET = '???'
-* FORM_URL = http://???/redirect_action
+* FORM_URL = http://localhost:5050/redirect_action
 
 */
 exports.onExecutePostLogin = async (event, api) => {
