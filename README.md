@@ -1,0 +1,68 @@
+# Express_Auth0
+
+<code>
+/**
+* Handler that will be called during the execution of a PostLogin flow.
+*
+* @param {Event} event - Details about the user and the context in which they are logging in.
+* @param {PostLoginAPI} api - Interface whose methods can be used to change the behavior of the login.
+
+* SESSION_TOKEN_SECRET = 'SESSION_TOKEN_SECRET'
+* FORM_URL = http://localhost:5050/redirect_action
+
+*/
+exports.onExecutePostLogin = async (event, api) => {
+  if(event.client.name !== "express_Auth0"){
+    console.log('Redirect Action not supported for App - '+ event.client.name +'. Skipping.');
+    return;
+  }
+
+  if (!event.secrets.SESSION_TOKEN_SECRET || !event.secrets.FORM_URL) {
+    console.log('Missing required configuration. Skipping.');
+    return;
+  }
+  
+  const sessionToken = api.redirect.encodeToken({
+    secret: event.secrets.SESSION_TOKEN_SECRET,
+    payload: {
+      iss: `https://${event.request.hostname}/`,
+    },
+  });
+
+  api.redirect.sendUserTo(event.secrets.FORM_URL, {
+    query: {
+      session_token: sessionToken,
+      redirect_uri: `https://${event.request.hostname}/continue`,
+    },
+  });
+};
+
+exports.onContinuePostLogin = async (event, api) => {
+  let decodedToken;
+  try {
+    decodedToken = api.redirect.validateToken({
+      secret: event.secrets.SESSION_TOKEN_SECRET,
+      tokenParameterName: 'session_token',
+    });
+  } catch (error) {
+    console.log(error.message);
+    return api.access.deny('Error occurred during redirect.');
+  }
+
+  const customClaims = decodedToken.other;
+
+  for (const [key, value] of Object.entries(customClaims)) {
+    api.user.setUserMetadata(key, value);
+  }
+};
+
+/**
+* Handler that will be invoked when this action is resuming after an external redirect. If your
+* onExecutePostLogin function does not perform a redirect, this function can be safely ignored.
+*
+* @param {Event} event - Details about the user and the context in which they are logging in.
+* @param {PostLoginAPI} api - Interface whose methods can be used to change the behavior of the login.
+*/
+// exports.onContinuePostLogin = async (event, api) => {
+// };
+<code>
