@@ -1,6 +1,6 @@
 # Express_Auth0
 
-<code>
+<code node>
 /**
 * Handler that will be called during the execution of a PostLogin flow.
 *
@@ -11,6 +11,7 @@
 * FORM_URL = http://localhost:5050/redirect_action
 
 */
+
 exports.onExecutePostLogin = async (event, api) => {
   if(event.client.name !== "express_Auth0"){
     console.log('Redirect Action not supported for App - '+ event.client.name +'. Skipping.');
@@ -65,4 +66,4 @@ exports.onContinuePostLogin = async (event, api) => {
 */
 // exports.onContinuePostLogin = async (event, api) => {
 // };
-<code>
+</code>
