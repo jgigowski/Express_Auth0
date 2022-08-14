@@ -5,19 +5,14 @@ Setup Instructions
 2. Auth0 Tenant - Integrate the app into Auth0 tenant and create an Action in the Login Flow with the following code
 3. Create 2 Action Secrets - You can see them in the action code comment below
 
-<html>
 <pre>
 /**
 * Handler that will be called during the execution of a PostLogin flow.
-*
-* @param {Event} event - Details about the user and the context in which they are logging in.
-* @param {PostLoginAPI} api - Interface whose methods can be used to change the behavior of the login.
 
 * SESSION_TOKEN_SECRET = 'SESSION_TOKEN_SECRET'
 * FORM_URL = http://localhost:5050/redirect_action
 
 */
-
 exports.onExecutePostLogin = async (event, api) => {
   if(event.client.name !== "express_Auth0"){
     console.log('Redirect Action not supported for App - '+ event.client.name +'. Skipping.');
@@ -62,15 +57,4 @@ exports.onContinuePostLogin = async (event, api) => {
     api.user.setUserMetadata(key, value);
   }
 };
-
-/**
-* Handler that will be invoked when this action is resuming after an external redirect. If your
-* onExecutePostLogin function does not perform a redirect, this function can be safely ignored.
-*
-* @param {Event} event - Details about the user and the context in which they are logging in.
-* @param {PostLoginAPI} api - Interface whose methods can be used to change the behavior of the login.
-*/
-// exports.onContinuePostLogin = async (event, api) => {
-// };
 </pre>
-</html>
