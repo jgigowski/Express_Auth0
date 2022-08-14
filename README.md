@@ -5,12 +5,34 @@ Setup Instructions
 2. Auth0 Tenant - Integrate the app into Auth0 tenant and create an Action in the Login Flow with the below code
 3. Create 2 Action Secrets - You can see them in the action code comment below
 
+ENV file
+<pre>
+SESSION_TOKEN_SECRET variable must match the one below in the Action Secret 
+SESSION_TOKEN_SECRET = '???'
+
+SECRET variable can be anything
+SECRET = 'a long, randomly-generated string stored in env'
+
+BASE_URL is the app url
+BASE_URL = 'http://localhost:5050'
+
+CLIENT_ID comes from the AUth0 app integration
+CLIENT_ID = '???'
+
+ISSUER_BASE_URL is the Auth0 url
+ISSUER_BASE_URL = 'https://???.us.auth0.com' or similar
+
+PORT of the app
+PORT = '5050'
+</pre>
+
+Action Code
 <pre>
 /**
 * Handler that will be called during the execution of a PostLogin flow.
 
-* SESSION_TOKEN_SECRET = 'SESSION_TOKEN_SECRET'
-* FORM_URL = http://localhost:5050/redirect_action
+* SESSION_TOKEN_SECRET = '???'
+* FORM_URL = http://???/redirect_action
 
 */
 exports.onExecutePostLogin = async (event, api) => {
