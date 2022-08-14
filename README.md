@@ -7,7 +7,7 @@ Setup Instructions
 
 ENV file
 <pre>
-SESSION_TOKEN_SECRET variable must match the one below in the Action Secret 
+SESSION_TOKEN_SECRET variables must match (Action Secret and ENV variable)
 SESSION_TOKEN_SECRET = '???'
 
 SECRET variable can be anything
